@@ -15,8 +15,14 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        if (hitInfo.tag.Equals("Enemy") || hitInfo.tag.Equals("Player"))
+        if (hitInfo.tag.Equals("Enemy"))
         {
+            Destroy(gameObject);
+        }
+
+        if (hitInfo.tag.Equals("Player"))
+        {
+            
             Destroy(gameObject);
         }
 
