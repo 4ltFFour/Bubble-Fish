@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5355720575510883074}
   - component: {fileID: 6159001371827863744}
   - component: {fileID: 8847825410244523445}
-  - component: {fileID: 2950229264393319356}
   - component: {fileID: 5047340507048630346}
-  m_Layer: 6
-  m_Name: Bubble Bullet
+  - component: {fileID: 4319981055884251783}
+  - component: {fileID: -1807722185699606334}
+  m_Layer: 0
+  m_Name: BubbleBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,18 +107,32 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0.1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ed2537956f3018b4f86e53074e6b7627, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &2950229264393319356
+--- !u!114 &5047340507048630346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122895823293839012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6faaefee63223de4780e60ce8dac50ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  rb: {fileID: 8847825410244523445}
+--- !u!58 &4319981055884251783
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +142,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ed2537956f3018b4f86e53074e6b7627, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -153,7 +168,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5047340507048630346
+--- !u!114 &-1807722185699606334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +177,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5122895823293839012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6faaefee63223de4780e60ce8dac50ad, type: 3}
+  m_Script: {fileID: 11500000, guid: ac9f465ce75d2cc44a88bfa7f87c56b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   rb: {fileID: 8847825410244523445}
