@@ -49,7 +49,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    private float bubbleJumpBoost = 50f;
+    private float bubbleJumpBoost = 30f;
 
     public void ApplyBubbleJumpBoost()
     {
