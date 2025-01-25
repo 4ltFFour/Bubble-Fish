@@ -13,27 +13,26 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity = transform.right * speed;
     }
 
-    void OnTriggerEnter2D (Collider2D hitInfo)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.BecomeBubbled(100);
-        }
-
-        if (hitInfo.tag.Equals("Enemy") || hitInfo.tag.Equals("Player"))
-        {
-
             Destroy(gameObject);
         }
 
-        if (hitInfo.tag.Equals("Player"))
+        PlayerMovementScript player = hitInfo.GetComponent<PlayerMovementScript>();
+        if (player != null)
         {
-            
-            Destroy(gameObject);
+            Vector2 collisionDirection = transform.position - hitInfo.transform.position;
+            if (collisionDirection.y < 0) // Player is above the bubble
+            {
+                player.ApplyBubbleJumpBoost();
+                Destroy(gameObject);
+            }
         }
-
     }
+
 
 }
