@@ -17,7 +17,8 @@ public class Collision : MonoBehaviour
     {
         if(Physics2D.OverlapCircle(transform.position, 0.5f, groundLayer))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Math.Abs(rb.linearVelocity.y));
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 1.1f * Math.Abs(rb.linearVelocity.y));
+            
         }
     }
 }
