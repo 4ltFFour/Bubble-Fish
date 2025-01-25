@@ -49,13 +49,16 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
+    private float bubbleJumpBoost = 50f;
+
+    public void ApplyBubbleJumpBoost()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, bubbleJumpBoost);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BubbleBullet"))
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 10f);
-            print("collision is BubbleBullet");
-        }
-        print("collision detected");
+        // Empty but keeping for future use
     }
+
 }
