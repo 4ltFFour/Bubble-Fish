@@ -13,4 +13,13 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity = transform.right * speed;
     }
 
+    void OnTriggerEnter2D (Collider2D hitInfo)
+    {
+        if (hitInfo.tag.Equals("Enemy") || hitInfo.tag.Equals("Player"))
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
 }
