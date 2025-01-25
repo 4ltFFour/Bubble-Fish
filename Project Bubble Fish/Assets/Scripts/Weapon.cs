@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
+        //create bullet
         Instantiate(bullet, firePoint.position, firePoint.rotation);
     }
 }
