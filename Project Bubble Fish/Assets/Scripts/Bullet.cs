@@ -28,6 +28,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (hitInfo.tag.Equals("Player"))
+        {
+            
+            Destroy(gameObject);
+        }
+
     }
 
 }

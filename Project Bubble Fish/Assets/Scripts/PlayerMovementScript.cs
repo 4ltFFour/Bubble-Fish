@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -46,5 +47,15 @@ public class PlayerMovementScript : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             transform.localScale = localScale;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BubbleBullet"))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 10f);
+            print("collision is BubbleBullet");
+        }
+        print("collision detected");
     }
 }
