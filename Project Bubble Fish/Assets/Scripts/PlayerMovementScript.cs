@@ -49,11 +49,11 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    private float bubbleJumpBoost = 50f;
+    private float bubbleJumpBoost = 25f;
 
-    public void ApplyBubbleJumpBoost()
+    public void ApplyBubbleJumpBoost(Vector2 boostDirection)
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, bubbleJumpBoost);
+        rb.linearVelocity = boostDirection * bubbleJumpBoost;
     }
 
 }
