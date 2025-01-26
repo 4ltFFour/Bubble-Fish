@@ -5,6 +5,12 @@ public class Bullet : MonoBehaviour
 
     public float speed = 10f;
     public Rigidbody2D rb;
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
 
 
@@ -27,6 +33,7 @@ public class Bullet : MonoBehaviour
         if (player != null)
         {
             Vector2 collisionDirection = transform.position - hitInfo.transform.position;
+            anim.SetTrigger("Pop");
             Destroy(gameObject);
             if (collisionDirection.y < 0) // Player is above the bubble
             {
