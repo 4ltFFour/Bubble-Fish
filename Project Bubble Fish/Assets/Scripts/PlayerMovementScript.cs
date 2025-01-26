@@ -18,6 +18,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -30,11 +31,6 @@ public class PlayerMovementScript : MonoBehaviour
         Jump();
 
         Flip();
-    }
-
-    private bool IsGrounded() {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        return grounded;
     }
 
     private void FixedUpdate()
@@ -62,19 +58,33 @@ public class PlayerMovementScript : MonoBehaviour
     private void Jump()
     {
 
-        grounded = IsGrounded();
+        
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+            grounded = false;
+            anim.SetBool("grounded", grounded);
             anim.SetTrigger("Jump");
+            
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+            grounded = false;
+            anim.SetBool("grounded", grounded);
             anim.SetTrigger("Jump");
         }
-        grounded = IsGrounded();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = true;
+            anim.SetBool("grounded", grounded);
+            Debug.Log("grounded");
+        }
     }
 
 }
