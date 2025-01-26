@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = startingHealth;
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -29,14 +29,14 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth < 0)
         {
-            //anim.SetTrigger("Hurt");
+            anim.SetTrigger("Hurt");
             StartCoroutine(Invulnerability());
         }
         else 
         {
             if (!dead)
             {
-                //anim.SetTrigger("die");
+                anim.SetTrigger("die");
                 GetComponent<PlayerMovementScript>().enabled = false;
                 dead = true;
             }    
