@@ -49,17 +49,11 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-    private float bubbleBoostForce = 30f;
+    private float bubbleJumpBoost = 25f;
 
-    public void ApplyBubbleBoost(Vector2 direction)
+    public void ApplyBubbleJumpBoost(int boostDirection)
     {
-        rb.linearVelocity = direction * bubbleBoostForce;
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Empty but keeping for future use
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, boostDirection * bubbleJumpBoost);
     }
 
 }
