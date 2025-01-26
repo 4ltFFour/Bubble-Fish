@@ -25,14 +25,13 @@ public class Bullet : MonoBehaviour
         PlayerMovementScript player = hitInfo.GetComponent<PlayerMovementScript>();
         if (player != null)
         {
-            Vector2 collisionDirection = (Vector2)(player.transform.position - transform.position);
-            collisionDirection.Normalize();
-
-            player.ApplyBubbleBoost(collisionDirection);
-            Destroy(gameObject);
+            Vector2 collisionDirection = transform.position - hitInfo.transform.position;
+            if (collisionDirection.y < 0) // Player is above the bubble
+            {
+                player.ApplyBubbleJumpBoost();
+                Destroy(gameObject);
+            }
         }
-
-
     }
 
 
