@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 8847825410244523445}
   - component: {fileID: 5047340507048630346}
   - component: {fileID: 4319981055884251783}
-  - component: {fileID: -1807722185699606334}
   - component: {fileID: 3129937575534551582}
   m_Layer: 0
   m_Name: BubbleBullet
@@ -204,27 +203,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &-1807722185699606334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5122895823293839012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9f465ce75d2cc44a88bfa7f87c56b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceAmount: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  floorCheck: {fileID: 6072740363316074662}
-  ceilingCheck: {fileID: 1974504602576305430}
-  leftWallCheck: {fileID: 6536690228687409803}
-  rightWallCheck: {fileID: 8585832496853914786}
-  rb: {fileID: 8847825410244523445}
 --- !u!58 &3129937575534551582
 CircleCollider2D:
   m_ObjectHideFlags: 0
