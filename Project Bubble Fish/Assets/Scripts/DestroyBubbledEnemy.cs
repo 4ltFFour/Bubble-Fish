@@ -4,7 +4,7 @@ public class DestroyBubbledEnemy : MonoBehaviour
 {
     public Rigidbody2D rb;
 
-    private float bounce = 30f;
+    private float bounce = 15f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
