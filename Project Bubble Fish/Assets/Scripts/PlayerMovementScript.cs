@@ -79,6 +79,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //set to ground
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
