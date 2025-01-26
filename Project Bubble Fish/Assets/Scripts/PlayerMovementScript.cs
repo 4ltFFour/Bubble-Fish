@@ -15,6 +15,7 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private bool grounded;
     private Animator anim;
+    [SerializeField] private AudioClip popSound;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class PlayerMovementScript : MonoBehaviour
     public void ApplyBubbleJumpBoost(int boostDirection)
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, boostDirection * bubbleJumpBoost);
+        AudioSource.PlayClipAtPoint(popSound, rb.position);
     }
 
     private void Jump()
