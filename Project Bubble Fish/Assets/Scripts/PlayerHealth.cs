@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-        if (currentHealth < 0)
+        if (currentHealth > 0)
         {
             anim.SetTrigger("Hurt");
             StartCoroutine(Invulnerability());
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!dead)
             {
-                anim.SetTrigger("die");
+                anim.SetTrigger("Die");
                 GetComponent<PlayerMovementScript>().enabled = false;
                 dead = true;
             }    
