@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask enemies;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapCircle(wallCheck.position, 0.2f, groundLayer))
+        if (Physics2D.OverlapCircle(wallCheck.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallCheck.position, 0.1f, enemies))
         {
             direction *= -1;
             transform.Rotate(0f, 180f, 0f);
