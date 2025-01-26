@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bubblepop4_0: 3116702354621962653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
