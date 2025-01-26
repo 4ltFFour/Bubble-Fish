@@ -13,25 +13,28 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    private bool grounded;
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        anim.SetBool("Run", horizontal != 0);
 
-        if (Input.GetButtonDown("Jump") && IsGrounded()) {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f) {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
-        }
+        Jump();
 
         Flip();
     }
 
     private bool IsGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return grounded;
     }
 
     private void FixedUpdate()
@@ -54,6 +57,24 @@ public class PlayerMovementScript : MonoBehaviour
     public void ApplyBubbleJumpBoost(int boostDirection)
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, boostDirection * bubbleJumpBoost);
+    }
+
+    private void Jump()
+    {
+
+        grounded = IsGrounded();
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+            anim.SetTrigger("Jump");
+        }
+
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+            anim.SetTrigger("Jump");
+        }
+        grounded = IsGrounded();
     }
 
 }
